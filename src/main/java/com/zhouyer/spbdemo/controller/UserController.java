@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("api/")
 public class UserController {
 
+
     @ResponseBody
     @GetMapping("/index")
     public String index(){
