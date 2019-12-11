@@ -17,10 +17,10 @@ class SpbDemoApplicationTests {
     @Test
     public void addUserTest() {
         User user = new User();
-        user.setUsername("admin");
-        user.setPassword("123456");
-        user.setAge(24);
-        user.setSex(1);
+        user.setUsername("admin2");
+        user.setPassword("12345678");
+        user.setAge(23);
+        user.setSex(2);
         user.setBirthday(new Date());
         userRepository.save(user);
     }

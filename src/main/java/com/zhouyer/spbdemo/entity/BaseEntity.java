@@ -22,20 +22,18 @@ public class BaseEntity {
      * 主键ID
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     /**
      * 创建时间
      */
-    @Column(name = "create_time")
     @CreatedDate
     private Date createTime;
 
     /**
      * 修改时间
      */
-    @Column(name = "modify_time")
     @LastModifiedDate
     private Date modifyTime;
 
