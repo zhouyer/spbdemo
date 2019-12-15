@@ -18,4 +18,4 @@ spring:
 #需要登陆的页面
 login:
   page:
-    url: page/index,page/userList,page/admin/index
+    url: /page/index,/page/userList,/page/admin/index

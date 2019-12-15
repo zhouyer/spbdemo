@@ -1,6 +1,7 @@
 package com.zhouyer.spbdemo.config;
 
 import com.zhouyer.spbdemo.interceptor.LoginInterceptor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.web.servlet.config.annotation.*;
@@ -31,14 +32,17 @@ public class LoginConfig implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        LoginInterceptor loginInterceptor = new LoginInterceptor();
-        // 注册登陆拦截器
-        InterceptorRegistration loginInterceptorRegister = new InterceptorRegistration(loginInterceptor);
-        loginInterceptorRegister.addPathPatterns("/**");
-        //loginInterceptorRigister.excludePathPatterns();
-        loginInterceptorRegister.excludePathPatterns("/page/login");
-        loginInterceptorRegister.excludePathPatterns("/page/logout");
-        loginInterceptorRegister.excludePathPatterns("/js/**/*.js");
+        registry.addInterceptor(loginInterceptor())
+                .addPathPatterns("/**")
+                .excludePathPatterns("/page/login")
+                .excludePathPatterns("/page/logout")
+                .excludePathPatterns("/js/**/*.js");
+        System.out.println("注册登陆拦截器成功");
+    }
+
+    @Bean
+    public LoginInterceptor loginInterceptor() {
+        return new LoginInterceptor();
     }
 
     /**

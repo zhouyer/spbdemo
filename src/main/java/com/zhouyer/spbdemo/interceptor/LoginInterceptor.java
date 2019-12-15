@@ -25,12 +25,16 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         Object username = request.getSession().getAttribute("username");
         String path = request.getRequestURI();
-        if (null == username&&loginPageUrls.contains(path)) {
-            response.sendRedirect("page/login");
-            return false;
+        //需要验证登陆
+        if (loginPageUrls.contains(path)) {
+            if (null == username) {
+                response.sendRedirect("/page/login");
+                return false;
+            } else {
+                String loginName = (String) username;
+                System.out.println("该用户已经登录，用户名为:" + loginName);
+            }
         }
-        String loginName = (String) username;
-        System.out.println("该用户已经登录，用户名为:" + loginName);
         return true;
     }
 

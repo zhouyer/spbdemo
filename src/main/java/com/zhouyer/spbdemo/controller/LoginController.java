@@ -4,6 +4,7 @@ import com.zhouyer.spbdemo.service.ILoginService;
 import com.zhouyer.spbdemo.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -28,9 +29,10 @@ public class LoginController {
             return "redirect:/page/login";
         }
         request.getSession().setAttribute("username", userVO.getUsername());
-        return "redirect:/page/welcome";
+        return "redirect:/page/index";
     }
 
+    @GetMapping("/logout")
     public String logout(HttpServletRequest request){
         request.getSession().invalidate();
         return "redirect:/page/login";
