@@ -24,8 +24,18 @@ public class PageController {
         return "login";
     }
 
-    @GetMapping("/admin/inex")
+    @GetMapping("/admin/index")
     public String adminPage() {
         return "admin/index";
+    }
+
+    @GetMapping("/home")
+    public String home() {
+        return "home";
+    }
+
+    @GetMapping("/userList")
+    public String userList() {
+        return "userList";
     }
 }
