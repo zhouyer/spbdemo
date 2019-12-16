@@ -1,5 +1,6 @@
 package com.zhouyer.spbdemo.controller;
 
+import com.zhouyer.spbdemo.constants.annotation.Timer;
 import com.zhouyer.spbdemo.entity.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -30,5 +31,17 @@ public class UserController {
     @ApiOperation("测试接口")
     public String index(){
         return "spring boot";
+    }
+
+    @GetMapping("/test")
+    @ResponseBody
+    @Timer
+    public String getName(){
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "test";
     }
 }
