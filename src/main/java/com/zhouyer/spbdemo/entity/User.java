@@ -1,5 +1,7 @@
 package com.zhouyer.spbdemo.entity;
 
+import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.util.Date;
@@ -13,11 +15,8 @@ import java.util.Date;
  **/
 @Entity
 @Table(name = "user")
-public class User {
-    /**
-     * 用户Id
-     */
-    private String userId;
+@Data
+public class User extends BaseEntity {
     /**
      * 用户名
      */
@@ -38,13 +37,4 @@ public class User {
      * 出生日期
      */
     private Date birthday;
-
-    /**
-     * 创建时间
-     */
-    private Date createTime;
-    /**
-     * 修改时间
-     */
-    private Date modifyTime;
 }

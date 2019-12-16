@@ -1,9 +1,14 @@
 package com.zhouyer.spbdemo.controller;
 
+import com.zhouyer.spbdemo.entity.User;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @ClassName UserController
@@ -14,11 +19,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
  **/
 @Controller
 @RequestMapping("api/")
+@Api("用户相关操作接口")
 public class UserController {
-
-
+    /**
+     * 测试接口
+     * @return
+     */
     @ResponseBody
     @GetMapping("/index")
+    @ApiOperation("测试接口")
     public String index(){
         return "spring boot";
     }
