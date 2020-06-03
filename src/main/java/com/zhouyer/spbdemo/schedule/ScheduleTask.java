@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ScheduleTask {
 
-    @Scheduled(cron = "0/5 * * * * ?")
+//    @Scheduled(cron = "0/5 * * * * ?")
     private void execute() {
         System.out.println("执行定时任务...");
     }
