@@ -19,3 +19,4 @@ spring:
 login:
   page:
     url: /page/index,/page/userList,/page/admin/index
+

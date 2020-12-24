@@ -24,4 +24,6 @@ class SpbDemoApplicationTests {
         user.setBirthday(new Date());
         userRepository.save(user);
     }
+
+
 }
